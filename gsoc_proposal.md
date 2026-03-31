@@ -2,7 +2,7 @@
 
 ## 🥇 Section 1 — My Prototype
 
-Before diving into the theory, I wanted to see if a unified interaction model actually works in practice. I built a functional **Parametric CAD + Collaboration PoC** to test how we can move away from raw coordinates and toward a pure reference-based system.
+I built a working Parametric CAD + Collaboration prototype to understand how snapping, measurement, and interaction behave when modeled as references instead of coordinates.
 
 In my prototype, every shape (Line, Circle, Rectangle) isn't just a collection of X-Y values. Instead, the system resolves them into **semantic references** like `Circle1@center` or `Rect2@top_left`. This is the core of "parametric thinking."
 
@@ -24,6 +24,8 @@ This diagram proves the stability of the model. I added an **Annotation System**
 
 ## 🧠 Section 2 — Problem Understanding
 
+What I noticed while building the prototype is that the problem is not just missing features — it's that these systems don’t share a common underlying model.
+
 Working on this PoC helped me pinpoint why FreeCAD sometimes feels inconsistent during complex edits. Currently, snapping, measurement (Issue #13708), and annotations often behave like isolated features. 
 
 When you snap a measurement in many tools, it often "drops" the relationship after the initial click. If the underlying geometry moves, the measurement doesn't always follow, or worse, it follows a coordinate that no longer makes sense. The snapping also lacks a clear priority model, which I found leads to "selection fatigue" in dense models.
@@ -40,11 +42,13 @@ My proposal is to unify these systems under a **Reference-Based Model**. Instead
 
 By implementing a "reference resolver" similar to what I did in my `MeasurementEngine.js`, we can ensure that as the App layer updates the geometry, the UI layer (measurements/annotations) remains 100% synchronized because they are pointing to a stable identity, not a static number.
 
+This shifts the system from being event-driven (click → compute) to being reference-driven (resolve → update).
+
 ---
 
 ## 🏗️ Section 4 — Technical Design (FreeCAD Mapping)
 
-I want to map the logic from my PoC into the existing FreeCAD architecture:
+The goal is to carefully integrate this model into FreeCAD’s existing architecture without disrupting current workflows.
 
 1.  **Geometry Layer (App/Core)**: This corresponds to my `GeometryEngine`. It's the source of truth for parametric data.
 2.  **Selection Pipeline (View/Gui)**: My `SnapManager` would fit into the selection and snapping routines. I plan to refine the `ViewProvider` logic to expose semantic points more clearly.
@@ -62,11 +66,14 @@ I want to keep this realistic. FreeCAD is a huge codebase, and my first goal is 
 -   **Phase 3 (Weeks 7-9)**: Develop the **Reference-Based Measurement** core. The goal is to allow measurements to persist through geometry updates.
 -   **Phase 4 (Weeks 10-12)**: Integration and testing. I'll add the basic **Annotation/Comment** markers and ensure the UI doesn't clutter during complex assemblies.
 
+Each phase will be validated incrementally to avoid introducing instability into the core system. I am committed to dedicating **30-35 hours per week** to this project to ensure we hit every milestone without compromise.
+
 ---
 
 ## 👨💻 Section 6 — Why Me
 
-I’m not just a developer; I’m someone who actually uses CAD. I didn't just read the issues—I built a working prototype to test my ideas. I already understand the tradeoffs: for example, re-resolving references every frame can be expensive, and I’ve already started thinking about how to optimize this through lazy-evaluation (which I experimented with in my `refreshEngineState` logic).
+I didn’t just analyze this problem — I built a working system to explore it. I’m not just a developer; I’m someone who actually uses CAD. I didn't just read the issues—I built a working prototype to test my ideas.
+ I already understand the tradeoffs: for example, re-resolving references every frame can be expensive, and I’ve already started thinking about how to optimize this through lazy-evaluation (which I experimented with in my `refreshEngineState` logic).
 
 I’ve spent the last week digging through the FreeCAD issue tracker and community discussions. I’m ready to put in the work to turn my prototype into a core feature.
 
