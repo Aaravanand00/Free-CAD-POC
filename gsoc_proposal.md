@@ -102,6 +102,5 @@ I’ve spent the last week digging through the FreeCAD issue tracker and communi
 
 -   **FreeCAD Repository**: [github.com/FreeCAD/FreeCAD](https://github.com/FreeCAD/FreeCAD)
 -   **FreeCAD Issue #25681**: [Core: Collaboration features](https://github.com/FreeCAD/FreeCAD/issues/25681)
--   **FreeCAD Issue #13708**: [Add snapping to measurements / picking points](https://github.com/FreeCAD/FreeCAD/issues/13708)
 -   **My Working Prototype**: [github.com/Aaravanand00/Free-CAD-POC](https://github.com/Aaravanand00/Free-CAD-POC)
 -   **Wikipedia**: Parametric Design Principles
