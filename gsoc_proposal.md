@@ -20,6 +20,17 @@ What I noticed was that once you have a stable reference, everything else become
 
 This diagram proves the stability of the model. I added an **Annotation System** where users can pin a comment like "Check alignment" directly to a snap point. Because the comment is anchored to `Circle2@center` and not to a pixel on the screen, the comment follows the circle as its parameters change. This is exactly what’s missing in many collaborative CAD workflows today.
 
+## 🌟 Open Source Contributions
+
+I have a strong track record of contributing to various open-source organizations, ranging from CI/CD automation to security and testing. This experience has given me a deep understanding of maintaining large-scale codebases and following strict community guidelines.
+
+| Organization | Contribution | Status | Summary |
+|--------------|--------------|--------|---------|
+| **Joplin**   | PR #138 & #148 | ✅ Merged | Automated the plugin framework updates using GitHub Actions (CI non-interactive fixes). |
+| **gittuf**   | PR #1232     | ⏳ Open | Introduced TUI testing logic using the `teatest` framework. |
+| **Kmesh**    | PR #1623     | ⏳ Open | Improving BPF logging and ADS mode deployment guides. |
+| **MUIO**     | PR #43 & #42 | ⏳ Open | Focused on upload security (size limits) and environment documentation. |
+
 ---
 
 ## 🧠 Section 2 — Problem Understanding

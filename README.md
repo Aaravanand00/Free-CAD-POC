@@ -62,6 +62,17 @@ The snapping priority (**Vertex > Center > Midpoint**) was a small but important
 
 **Figure: Prototype demonstrating parametric snapping and reference-based interaction.**
 
+## 🌟 Open Source Experience
+
+Beyond this CAD PoC, I am an active contributor to several high-impact open-source projects. I have experience with CI/CD automation, security hardening, and TUI testing.
+
+| Org | Contribution | Status | Tech |
+|---|---|---|---|
+| **Joplin** | [PR #138](https://github.com/joplin/plugin-templates/pull/138) / [#148](https://github.com/joplin/plugin-templates/pull/148) | ✅ Merged | Actions, CI |
+| **gittuf** | [PR #1232](https://github.com/gittuf/gittuf/pull/1232) | ⏳ Open | Go, TUI |
+| **Kmesh** | [PR #1623](https://github.com/kmesh-net/kmesh/pull/1623) | ⏳ Open | BPF, Docs |
+| **MUIO** | [PR #43](https://github.com/OSeMOSYS/MUIO/pull/43) | ⏳ Open | Security |
+
 The scene shows multiple shapes interacting through semantic snap points. This setup was used to validate snapping priority, reference resolution, and how measurements and annotations remain stable even when geometry changes.
 
 ---
